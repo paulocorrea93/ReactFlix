@@ -13,7 +13,7 @@ const Navbar = () => {
         <Link to="logIn">
           <button className="text-white pr-4">Sing In</button>
         </Link>
-        <Link to="singUp">
+        <Link className="text-white" to="singUp">
           <button className="bg-red-600 px-6 py-2 rounded cursor-pointer">
             Sing Up
           </button>

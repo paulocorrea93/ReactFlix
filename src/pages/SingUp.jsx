@@ -1,7 +1,22 @@
-import React from "react";
+import { async } from "@firebase/util";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { UserAuth } from "../context/AuthContext";
 
 const SingUp = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { user, singUp } = UserAuth();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await singUp(email, password);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <div className="w-full h-screen text-white">
@@ -15,22 +30,29 @@ const SingUp = () => {
           <div className="max-w-[450px] h-[600px] mx-auto bg-black/75 text-white">
             <div className="max-w-[320px] mx-auto py-16">
               <h1 className="text-3xl font-bold ">Sing Up</h1>
-              <form className="w-full flex flex-col py-4">
+              <form
+                onSubmit={handleSubmit}
+                className="w-full flex flex-col py-4"
+              >
                 <input
+                  onChange={(e) => setEmail(e.target.value)}
                   type="email"
                   placeholder="E-mail"
                   autoComplete="email"
                   className="p-3 my-4 bg-gray-600 rounded"
                 />
                 <input
+                  onChange={(e) => setPassword(e.target.value)}
                   type="password"
                   placeholder="Password"
                   autoComplete="current-password"
                   className="p-3 my-4 bg-gray-600 rounded"
                 />
-                <button className="bg-red-600 rounded text-white font-bold py-3 my-6">
-                  <Link to="/">Sing Up</Link>
+                  <Link  className="bg-red-600 rounded text-white font-bold py-3 my-6 text-center" to="/">
+                <button>
+                    Sing Up
                 </button>
+                    </Link>
                 <div className="flex justify-between items-center text-sm text-gray-600">
                   <p>
                     <input type="checkbox" className="" /> Remember me{" "}

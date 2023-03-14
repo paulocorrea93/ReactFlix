@@ -9,11 +9,11 @@ const Home = () => {
   return (
     <div>
       <Main />
-      <Row sliderID='1' title='requestUpcoming' fetchURL={requests.requestUpcoming} />
-      <Row sliderID='2' title='requestTopRated' fetchURL={requests.requestTopRated} />
-      <Row sliderID='3' title='requestTrending' fetchURL={requests.requestTrending} />
-      <Row sliderID='4' title='requestTvPopular' fetchURL={requests.requestTvPopular} />
-      <Row sliderID='5' title='requestPopular' fetchURL={requests.requestPopular} />
+      <Row sliderID='1' title='Upcoming' fetchURL={requests.requestUpcoming} />
+      <Row sliderID='2' title='Top Rated' fetchURL={requests.requestTopRated} />
+      <Row sliderID='3' title='Trending' fetchURL={requests.requestTrending} />
+      <Row sliderID='4' title='Tv Popular' fetchURL={requests.requestTvPopular} />
+      <Row sliderID='5' title='Popular' fetchURL={requests.requestPopular} />
     </div>
   );
 };
